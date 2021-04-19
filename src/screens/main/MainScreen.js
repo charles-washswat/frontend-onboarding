@@ -9,7 +9,7 @@ function MainScreen(props) {
   const {componentId} = props;
   const navData = [
     {text: 'Go to the HomeScreen', name: 'HomeScreen', idx: 0},
-    {text: 'Go to the HomeScreen', name: 'MypageScreen', idx: 1},
+    {text: 'Go to the MypageScreen', name: 'MypageScreen', idx: 1},
   ];
 
   const navButton = ({text, onPress, idx}) => {
