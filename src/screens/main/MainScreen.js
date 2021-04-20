@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, View, Text} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 // components import
 import {TouchableOpacityActiveOne} from '../../components/common';
 // utils import
