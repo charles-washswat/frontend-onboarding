@@ -1,29 +1,29 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import React, { Component } from 'react';
+import {SafeAreaView} from 'react-native';
+import iconList from '../../components/data/iconMenuList'
+import textMenuList from '../../components/data/textMenuList'
+import CSmenuList from '../../components/data/CSmenuList'
+import testUser from '../../components/data/testUser.json'
+import styles from '../../components/common/style/myPageStyle'
+import menuBuilder from '../../Container/menuContainer/menuBuilder'
+import printUser from '../../components/printFunction/printUser'
 
-function MypageScreen(props) {
+
+function mainPage(props){
   const {componentId} = props;
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text>MypageScreen</Text>
+  return(
+    <SafeAreaView style={styles.Container}>
+    {printUser(testUser)} 
+    {menuBuilder('icon',iconList)}
+    {menuBuilder('text',textMenuList)}
+    {menuBuilder('text',CSmenuList)}
     </SafeAreaView>
   );
 }
 
-MypageScreen.options = {
-  topBar: {
-    title: {
-      text: 'Mypage',
-      color: 'white',
-    },
-    background: {
-      color: '#4d089a',
-    },
-  },
-};
 
-const styles = StyleSheet.create({
-  container: {flex: 1},
-});
 
-export default MypageScreen;
+export default mainPage;
+
+
+
