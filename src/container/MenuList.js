@@ -1,13 +1,13 @@
 import React from "react";
 import { View } from "react-native";
 import MenuItem from "../components/menuItems/menuItem";
-import style from "../components/style/style";
+import styles from "../components/style/item";
 
 function MenuList(props) {
-  const { list } = props;
+  const { datalist } = props;
   return (
-    <View style={style.mainMenuList}>
-      {list.map((item) => {
+    <View style={styles.mainMenuList}>
+      {datalist.map((item) => {
         return <MenuItem list={item} key={item.id} />;
       })}
     </View>

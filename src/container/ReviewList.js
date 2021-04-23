@@ -1,37 +1,50 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import style from "../components/style/style";
+import RatingItem from "../components/rating/RatingItem";
+import styles from "../components/style/review";
+
+const getRateSrc = (rate, rateArrImg) => {
+  let imgSrc = "";
+  let newRate = rateArrImg.find((info) => info.rate === rate);
+  if (newRate) {
+    imgSrc = newRate.src;
+  }
+  return imgSrc;
+};
 
 function ReviewList(props) {
-  const { data } = props;
+  const { reviewdata, reviewrate } = props;
+  console.log(reviewdata, "review");
   return (
     <>
-      <Text style={style.subTitle}>실제 고객들의 칭찬후기</Text>
-      <View style={style.reviewArea}>
-        <View style={style.titleBox}>
-          <Text style={style.reviewTitle}>{data.title}</Text>
-          <Text style={style.reviewCount}>
-            세특 {data.count}회차 · {data.day}
-          </Text>
-        </View>
-        <View style={style.reviewScope}>
-          <View style={style.areaScope}>
-            <Text>{data.collection}</Text>
-            <Image source={data.collectionStar} />
+      {reviewdata.map((item) => {
+        let rateImg = getRateSrc(item.rate, reviewrate);
+        console.log(item.rate, "rate11");
+        const rate = item.rate;
+        console.log(rate, "ok");
+        return (
+          <View style={styles.reviewArea} key={item.id}>
+            <View style={styles.titleBox}>
+              <Text style={styles.reviewTitle}>{item.user}</Text>
+              <Text style={styles.reviewCount}>
+                세특 {item.use_count}회차 · {item.date}
+              </Text>
+            </View>
+            <RatingItem
+              datalist={item}
+              reviewrate={reviewrate}
+              rateImg={rateImg}
+            />
+            <Text
+              style={styles.reviewText}
+              numberOfLines={3}
+              ellipsizeMode="tail"
+            >
+              {item.description}
+            </Text>
           </View>
-          <View style={style.areaScope}>
-            <Text>{data.delivery}</Text>
-            <Image source={data.deliveryStar} />
-          </View>
-          <View style={style.areaScope}>
-            <Text>{data.laundry}</Text>
-            <Image source={data.laundryStar} />
-          </View>
-        </View>
-        <Text style={style.reviewText} numberOfLines={3} ellipsizeMode="tail">
-          {data.description}
-        </Text>
-      </View>
+        );
+      })}
     </>
   );
 }
