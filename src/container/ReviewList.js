@@ -3,25 +3,22 @@ import { Image, Text, View } from "react-native";
 import RatingItem from "../components/rating/RatingItem";
 import styles from "../components/style/review";
 
-const getRateSrc = (rate, rateArrImg) => {
-  let imgSrc = "";
-  let newRate = rateArrImg.find((info) => info.rate === rate);
-  if (newRate) {
-    imgSrc = newRate.src;
-  }
-  return imgSrc;
-};
+// const getRateSrc = (rate, rateArrImg) => {
+//   let imgSrc = "";
+//   let newRate = rateArrImg.find((info) => info.rate === rate);
+//   if (newRate) {
+//     imgSrc = newRate.src;
+//   }
+//   return imgSrc;
+// };
 
 function ReviewList(props) {
-  const { reviewdata, reviewrate } = props;
-  console.log(reviewdata, "review");
+  const { reviewdata, reviewrate, reviewRateArr, reviewSortText } = props;
   return (
     <>
       {reviewdata.map((item) => {
-        let rateImg = getRateSrc(item.rate, reviewrate);
-        console.log(item.rate, "rate11");
+        // let rateImg = getRateSrc(item.rate, reviewrate);
         const rate = item.rate;
-        console.log(rate, "ok");
         return (
           <View style={styles.reviewArea} key={item.id}>
             <View style={styles.titleBox}>
@@ -33,7 +30,9 @@ function ReviewList(props) {
             <RatingItem
               datalist={item}
               reviewrate={reviewrate}
-              rateImg={rateImg}
+              // rateImg={rateImg}
+              // reviewRateArr={reviewRateArr}
+              reviewSortText={reviewSortText}
             />
             <Text
               style={styles.reviewText}

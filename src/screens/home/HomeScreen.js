@@ -8,7 +8,14 @@ import data from "../../components/data/data";
 
 function HomeScreen(props) {
   const { componentId } = props;
-  const { menuData, serviceData, reviewDataList, ratingImg } = data().props;
+  const {
+    menuData,
+    serviceData,
+    reviewDataList,
+    ratingImg,
+    reviewRateArr,
+    reviewSortText,
+  } = data().props;
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.wrapper}>
@@ -17,7 +24,12 @@ function HomeScreen(props) {
         <Text style={styles.subTitle}>이런 서비스는 어때요?</Text>
         <MenuList datalist={serviceData} />
         <Text style={styles.subTitle}>실제 고객들의 칭찬후기</Text>
-        <ReviewList reviewdata={reviewDataList} reviewrate={ratingImg} />
+        <ReviewList
+          reviewdata={reviewDataList}
+          reviewrate={ratingImg}
+          reviewRateArr={reviewRateArr}
+          reviewSortText={reviewSortText}
+        />
       </ScrollView>
     </SafeAreaView>
   );

@@ -65,12 +65,12 @@ const reviewData = [
     date: "오늘",
     description:
       "일반 동네세탁소보다 퀄리티가 상당합니다. 제가 이번에 처음으로 주문을 했지만 솔직히 반신반의한 마음으로 맡겼지만 세탁물을 받아보고 블라블라블라 블라블라블라 블라블라블라",
-    rate: "2",
-    // rate: {
-    //   rate_collection: "2",
-    //   rate_delivery: "5",
-    //   rate_laundry: "3",
-    // },
+    // rate: "4",
+    rate: [
+      { rate_collection: "2" },
+      { rate_delivery: "5" },
+      { rate_laundry: "3" },
+    ],
   },
   {
     id: 2,
@@ -78,12 +78,12 @@ const reviewData = [
     use_count: 4,
     date: "어제",
     description: "블라블라 블라블라블라 블라블라블라",
-    rate: "5",
-    // rate: {
-    //   rate_collection: "3",
-    //   rate_delivery: "1",
-    //   rate_laundry: "2",
-    // },
+    // rate: "5",
+    rate: [
+      { rate_collection: "1" },
+      { rate_delivery: "3" },
+      { rate_laundry: "2" },
+    ],
   },
   {
     id: 3,
@@ -92,12 +92,50 @@ const reviewData = [
     date: "3일 전",
     description:
       "일반 동네세탁소보다 퀄리티가 상당합니다.일반 동네세탁소보다 퀄리티가 상당합니다. ",
+    // rate: "3",
+    rate: [
+      { rate_collection: "5" },
+      { rate_delivery: "3" },
+      { rate_laundry: "4" },
+    ],
+  },
+];
+
+const reviewSortText = [
+  {
+    id: 1,
+    sortText: "수거",
+  },
+  {
+    id: 2,
+    sortText: "배송",
+  },
+  {
+    id: 3,
+    sortText: "세탁",
+  },
+];
+
+const reviewRateArr = [
+  {
+    id: 1,
+    rate: "1",
+  },
+  {
+    id: 2,
+    rate: "2",
+  },
+  {
+    id: 3,
     rate: "3",
-    // rate: {
-    //   rate_collection: "1",
-    //   rate_delivery: "2",
-    //   rate_laundry: "3",
-    // },
+  },
+  {
+    id: 4,
+    rate: "4",
+  },
+  {
+    id: 5,
+    rate: "5",
   },
 ];
 
@@ -131,6 +169,8 @@ function data() {
       serviceData={serviceItem}
       reviewDataList={reviewData}
       ratingImg={ratingStarImg}
+      reviewRateArr={reviewRateArr}
+      reviewSortText={reviewSortText}
     />
   );
 }
