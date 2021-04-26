@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 1,
+    flex: 1.3,
   },
   iconStyle: {
     //position: "relative",
