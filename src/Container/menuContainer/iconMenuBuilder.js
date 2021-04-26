@@ -5,11 +5,11 @@ import printIcon from '../../components/printFunction/printIcon';
 import printTextMenu from '../../components/printFunction/printTextMenu';
 import styles from '../../components/common/style/myPageStyle'
 
-function iconMenuBuilder(props){
+function IconMenuBuilder(props){
 
     return (
       <View style={styles.iconContainer}> 
-        {props.map((data) => {
+        {props.data.map((data) => {
               return printIcon({
                 text: data.text,
                 file: data.file,
@@ -22,4 +22,4 @@ function iconMenuBuilder(props){
   
 };
 
-export default iconMenuBuilder;
+export default IconMenuBuilder;

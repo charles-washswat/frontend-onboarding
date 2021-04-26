@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import {Text} from 'react-native';
-import styles from '../../components/common/style/myPageStyle'
+import styles from '../common/style/myPageStyle'
 
-function printUser(props){
+function PrintUser(props){
     return(
       <Text style={styles.nameStyle}>{
-        props.nickName}씨
+        props.data.nickName}씨
       </Text>
     );
   };
   
-  export default printUser;
+  export default PrintUser;
   
