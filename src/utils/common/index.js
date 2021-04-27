@@ -1,3 +1,3 @@
-import * as navUtils from './navigation/navigation';
+import * as navUtils from "./navigation/navigation";
 
-export {navUtils};
+export { navUtils };
