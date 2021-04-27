@@ -3,21 +3,11 @@ import { Image, Text, View } from "react-native";
 import RatingItem from "../components/rating/RatingItem";
 import styles from "../components/style/review";
 
-// const getRateSrc = (rate, rateArrImg) => {
-//   let imgSrc = "";
-//   let newRate = rateArrImg.find((info) => info.rate === rate);
-//   if (newRate) {
-//     imgSrc = newRate.src;
-//   }
-//   return imgSrc;
-// };
-
 function ReviewList(props) {
-  const { reviewdata, reviewrate, reviewRateArr, reviewSortText } = props;
+  const { reviewData, ratingStarImg } = props;
   return (
     <>
-      {reviewdata.map((item) => {
-        // let rateImg = getRateSrc(item.rate, reviewrate);
+      {reviewData.map((item) => {
         const rate = item.rate;
         return (
           <View style={styles.reviewArea} key={item.id}>
@@ -27,13 +17,7 @@ function ReviewList(props) {
                 세특 {item.use_count}회차 · {item.date}
               </Text>
             </View>
-            <RatingItem
-              datalist={item}
-              reviewrate={reviewrate}
-              // rateImg={rateImg}
-              // reviewRateArr={reviewRateArr}
-              reviewSortText={reviewSortText}
-            />
+            <RatingItem rateData={rate} ratingStarImg={ratingStarImg} />
             <Text
               style={styles.reviewText}
               numberOfLines={3}

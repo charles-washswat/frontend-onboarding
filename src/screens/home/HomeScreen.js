@@ -4,32 +4,25 @@ import TopInfoArea from "../../container/TopInfoArea";
 import MenuList from "../../container/MenuList";
 import ReviewList from "../../container/ReviewList";
 import styles from "../../components/style/style";
-import data from "../../components/data/data";
+import {
+  menuItem,
+  serviceItem,
+  reviewData,
+  ratingStarImg,
+} from "../../components/data/data";
 
 function HomeScreen(props) {
   const { componentId } = props;
-  const {
-    menuData,
-    serviceData,
-    reviewDataList,
-    ratingImg,
-    reviewRateArr,
-    reviewSortText,
-  } = data().props;
+  // const { menuItem, serviceItem, reviewData, ratingStarImg } = props;
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.wrapper}>
         <TopInfoArea />
-        <MenuList datalist={menuData} />
+        <MenuList dataList={menuItem} />
         <Text style={styles.subTitle}>이런 서비스는 어때요?</Text>
-        <MenuList datalist={serviceData} />
+        <MenuList dataList={serviceItem} />
         <Text style={styles.subTitle}>실제 고객들의 칭찬후기</Text>
-        <ReviewList
-          reviewdata={reviewDataList}
-          reviewrate={ratingImg}
-          reviewRateArr={reviewRateArr}
-          reviewSortText={reviewSortText}
-        />
+        <ReviewList reviewData={reviewData} ratingStarImg={ratingStarImg} />
       </ScrollView>
     </SafeAreaView>
   );

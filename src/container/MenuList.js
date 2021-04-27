@@ -4,10 +4,10 @@ import MenuItem from "../components/menuItems/menuItem";
 import styles from "../components/style/item";
 
 function MenuList(props) {
-  const { datalist } = props;
+  const { dataList } = props;
   return (
     <View style={styles.mainMenuList}>
-      {datalist.map((item) => {
+      {dataList.map((item) => {
         return <MenuItem list={item} key={item.id} />;
       })}
     </View>

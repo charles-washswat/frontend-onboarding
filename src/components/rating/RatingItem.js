@@ -12,33 +12,42 @@ import styles from "../style/review";
 //   return imgSrc;
 // };
 
-function RatingItem(props, idx) {
-  const {
-    datalist,
-    reviewrate,
-    reviewRateArr,
-    rateImg,
-    reviewSortText,
-  } = props;
+const getRateSrc = (scope, rateArrImg) => {
+  let rateImg = "";
+  let newRate = rateArrImg.find((info) => info.scope === scope);
+  if (newRate) {
+    rateImg = newRate.src;
+  }
+  return rateImg;
+};
+
+function RatingItem(props) {
+  const { rateData, ratingStarImg } = props;
+  // let scope1 = getRateSrc(rateData.scope1, ratingStarImg);
+  // let scope2 = getRateSrc(rateData.scope1, ratingStarImg);
+  // let scope3 = getRateSrc(rateData.scope1, ratingStarImg);
   return (
     <View style={styles.reviewScope}>
-      {reviewSortText.map((item) => {
-        // let rateReviewImg = getRateSrc(datalist.rate, reviewrate);
-        console.log(datalist.rate, "datalist");
+      {rateData.map((item) => {
+        let rateImgData = getRateSrc(item.scope, ratingStarImg);
         return (
-          <View style={styles.areaScope} key={item.id}>
-            <Text>{item.sortText}</Text>
-            {/* <Image source={rateReviewImg} /> */}
+          <View style={styles.areaScope} key={item.type}>
+            <Text>{item.type}</Text>
+            <Image source={rateImgData} />
           </View>
         );
       })}
       {/* <View style={styles.areaScope}>
+        <Text>수거</Text>
+        <Image source={scope1} />
+      </View>
+      <View style={styles.areaScope}>
         <Text>배송</Text>
-        <Image source={rateImg} />
+        <Image source={scope2} />
       </View>
       <View style={styles.areaScope}>
         <Text>세탁</Text>
-        <Image source={rateImg} />
+        <Image source={scope3} />
       </View> */}
     </View>
   );
